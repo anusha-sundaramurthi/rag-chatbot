@@ -1,27 +1,29 @@
 """
-Streamlit Chat UI for the TempestTrail Outfitters RAG chatbot.
+Streamlit Chat UI for the Everstorm Outfitters RAG chatbot.
 
+Run from the project root:
+    streamlit run app.py
 """
 
 import streamlit as st
-from langchain.embeddings import SentenceTransformerEmbeddings
-from langchain.vectorstores import FAISS
-from langchain.llms import Ollama
+from langchain_community.embeddings import SentenceTransformerEmbeddings
+from langchain_community.vectorstores import FAISS
+from langchain_community.llms import Ollama
 from langchain.chains import ConversationalRetrievalChain
 from langchain.prompts import PromptTemplate
 
 # ── Page config ──────────────────────────────────────────────
 st.set_page_config(
-    page_title="TempestTrail Support",
+    page_title="TempestTrial Support",
     page_icon="⛰️",
     layout="centered",
 )
-st.title("TempestTrail Outfitters – Customer Support")
+st.title("⛰️ TempestTrial Outfitters – Customer Support")
 st.caption("Ask me anything about orders, shipping, returns, or products.")
 
 # ── Load resources (cached so they only load once) ───────────
 SYSTEM_TEMPLATE = """
-You are a **Customer Support Chatbot** for TempestTrail Outfitters.
+You are a **Customer Support Chatbot** for Everstorm Outfitters.
 Use ONLY the information in CONTEXT to answer.
 If the answer is not there, say "I'm not sure from the docs."
 
